@@ -9,5 +9,7 @@
 import Foundation
 
 protocol ImageClient {
+    
     func downloadImage(from url: URL, completion: @escaping NetworkCompletionHandler<Data>)
+    
 }

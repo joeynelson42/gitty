@@ -11,8 +11,11 @@ import Foundation
 /// A type that is used to communicate with a third-party network, such as a REST API.
 /// The NetworkService includes one or more Clients which contain related network calls.
 protocol NetworkService {
+    
     var userClient: GithubUserClient { get }
+    
     var imageClient: ImageClient { get }
+    
 }
 
 struct NetworkServiceError: Error {

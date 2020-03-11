@@ -10,10 +10,10 @@ import UIKit
 
 final class ImageDataProvider {
     
-    private var store: ImageStore
+    private var store: Store
     private var client: ImageClient
     
-    init(store: ImageStore, client: ImageClient) {
+    init(store: Store, client: ImageClient) {
         self.store = store
         self.client = client
     }

@@ -10,9 +10,11 @@ import Foundation
 
 final class GithubUserDataProvider {
     
+    private var store: Store
     var client: GithubUserClient
     
-    init(client: GithubUserClient) {
+    init(store: Store, client: GithubUserClient) {
+        self.store = store
         self.client = client
     }
     
@@ -29,4 +31,23 @@ final class GithubUserDataProvider {
         }
     }
     
+    func getRepos(forUser user: GithubUser, completion: @escaping (_ repos: [GithubRepository], _ errorMessage: String?) -> ()) {
+        if let user = store.getUser(with: user.id), let repos = user.repos {
+            completion(repos, nil)
+        } else {
+            client.getRepos(forUser: user) { [weak self] (repos, error) in
+                DispatchQueue.main.async {
+                    if let repos = repos {
+                        var storedUser = user
+                        storedUser.repos = repos
+                        self?.store.storeUser(storedUser, with: storedUser.id)
+                        completion(repos, nil)
+                    } else {
+                        let errorMessage = error != nil ? error!.localizedDescription : "Something went horribly wrong."
+                        completion([], errorMessage)
+                    }
+                }
+            }
+        }
+    }
 }

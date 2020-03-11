@@ -33,14 +33,29 @@ final class StandardGithubUserClient: GithubUserClient {
             return
         }
         
+        performGET(url: url) { (result: GithubUserSearchResult?, error) in
+            completion(result?.users ?? nil, error)
+        }
+    }
+    
+    func getRepos(forUser user: GithubUser, completion: @escaping NetworkCompletionHandler<[GithubRepository]>) {
+        guard let url = URL(string: user.reposURL) else {
+            completion(nil, NetworkServiceError(localizedDescription: "Failed to construct URL."))
+            return
+        }
+        
+        performGET(url: url, completion: completion)
+    }
+    
+    private func performGET<T: Decodable>(url: URL, completion: @escaping NetworkCompletionHandler<T>) {
         let dataTask = defaultSession.dataTask(with: url) { data, response, error in
             if let error = error {
                 completion(nil, error)
             } else if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
                 let decoder = JSONDecoder()
                 do {
-                    let result = try decoder.decode(GithubUserSearchResult.self, from: data)
-                    completion(result.users, nil)
+                    let result = try decoder.decode(T.self, from: data)
+                    completion(result, nil)
                 } catch {
                     print(error)
                     completion(nil, error)

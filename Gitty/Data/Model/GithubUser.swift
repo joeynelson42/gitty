@@ -13,6 +13,7 @@ struct GithubUser: Codable {
     var username: String
     var avatarURL: String
     var reposURL: String
+    var repos: [GithubRepository]?
     
     enum CodingKeys: String, CodingKey {
       case id, login, avatar_url, repos_url

@@ -37,6 +37,7 @@ class UserSearchTableViewCell: UITableViewCell {
         super.prepareForReuse()
         
         avatarImageView.image = nil
+        repoLabel.text = ""
     }
     
     /// Set view/subviews appearances
@@ -52,7 +53,6 @@ class UserSearchTableViewCell: UITableViewCell {
         repoLabel.textColor = .darkText
         repoLabel.font = UIFont(name: "Avenir", size: 14)
         repoLabel.textAlignment = .right
-        repoLabel.text = "Repo: "
         
         loadingSpinner.tintColor = .blue
     }

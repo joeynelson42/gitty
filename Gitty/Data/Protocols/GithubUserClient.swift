@@ -14,4 +14,6 @@ protocol GithubUserClient {
     var baseURLComponents: URLComponents { get }
     
     func searchUsers(withKeyword keyword: String, page: Int, completion: @escaping NetworkCompletionHandler<[GithubUser]>)
+    
+    func getRepos(forUser user: GithubUser, completion: @escaping NetworkCompletionHandler<[GithubRepository]>)
 }

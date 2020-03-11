@@ -101,9 +101,20 @@ extension UserSearchViewController: UITableViewDataSource {
         
         cell.usernameLabel.text = user.username
         
-        guard let url = URL(string: user.avatarURL) else { return cell }
-        imageDataProvider.getImage(for: url) { [weak cell] (image, _) in
-            cell?.avatarImageView.image = image
+        if let url = URL(string: user.avatarURL) {
+            imageDataProvider.getImage(for: url) { [weak cell] (image, _) in
+                cell?.avatarImageView.image = image
+            }
+        }
+        
+        if let repos = user.repos {
+            cell.repoLabel.text = "Repos: \(repos.count)"
+        } else if indexPath.row < 3 {
+            userDataProvider.getRepos(forUser: user) { [weak self] (repos, _) in
+                print("hello")
+                self?.searchResults[indexPath.row].repos = repos
+                cell.repoLabel.text = "Repos: \(repos.count)"
+            }
         }
         
         return cell
