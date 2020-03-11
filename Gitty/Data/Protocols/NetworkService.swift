@@ -12,7 +12,7 @@ import Foundation
 /// The NetworkService includes one or more Clients which contain related network calls.
 protocol NetworkService {
     var userClient: GithubUserClient { get }
-//    var imageClient: ImageClient { get }
+    var imageClient: ImageClient { get }
 }
 
 struct NetworkServiceError: Error {

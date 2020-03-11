@@ -14,4 +14,6 @@ final class StandardNetworkService: NetworkService {
     
     lazy var userClient: GithubUserClient = StandardGithubUserClient(baseURLComponents: baseURLComponents)
     
+    lazy var imageClient: ImageClient = StandardImageClient()
+    
 }
