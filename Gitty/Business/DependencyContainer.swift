@@ -25,5 +25,7 @@ extension DependencyContainer: DataProviderFactory {
 }
 
 extension DependencyContainer: ViewControllerFactory {
-    
+    func buildUserSearchViewController() -> UserSearchViewController {
+        return UserSearchViewController(userDataProvider: buildGithubUserDataProvider())
+    }
 }

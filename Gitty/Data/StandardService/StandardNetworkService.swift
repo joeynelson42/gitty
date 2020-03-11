@@ -9,5 +9,9 @@
 import Foundation
 
 final class StandardNetworkService: NetworkService {
-    var userClient: GithubUserClient = StandardGithubUserClient()
+    
+    let baseURLComponents = URLComponents(string: "https://api.github.com")!
+    
+    lazy var userClient: GithubUserClient = StandardGithubUserClient(baseURLComponents: baseURLComponents)
+    
 }

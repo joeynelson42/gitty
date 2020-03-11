@@ -11,12 +11,20 @@ import UIKit
 class UserSearchViewController: UIViewController {
     
     // MARK: - Properties
+    var userDataProvider: GithubUserDataProvider
     
     // MARK: - View
     let baseView = UserSearchView()
     
-    
     // MARK: - Life Cycle
+    init(userDataProvider: GithubUserDataProvider) {
+        self.userDataProvider = userDataProvider
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         super.loadView()
@@ -32,5 +40,10 @@ class UserSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        userDataProvider.getSearchResults(forKeyword: "nelson", page: 0) { (users, errorMessage) in
+            print(users)
+            print(errorMessage)
+        }
     }
 }

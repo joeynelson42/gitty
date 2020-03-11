@@ -15,17 +15,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 //
-//        var networkService: NetworkService!
+        var networkService: NetworkService!
 //        if CommandLine.arguments.contains("--uitesting") || CommandLine.arguments.contains("--testing") {
 //            networkService = MockNetworkService()
 //        } else {
-//            networkService = StandardNetworkService()
+            networkService = StandardNetworkService()
 //        }
 //
 //        let imageStore = ImageStore()
-//        let dependencyContainer = DependencyContainer(networkService: networkService, imageStore: imageStore)
-//        let root = RootViewController(dependencyContainer: dependencyContainer)
-        let root = RootViewController()
+        let dependencyContainer = DependencyContainer(networkService: networkService)
+        let root = RootViewController(dependencyContainer: dependencyContainer)
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.rootViewController = root

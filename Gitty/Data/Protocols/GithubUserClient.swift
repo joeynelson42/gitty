@@ -10,5 +10,8 @@ import Foundation
 
 /// The Client which handles the network calls related to GithubUser resources.
 protocol GithubUserClient {
+    
+    var baseURLComponents: URLComponents { get }
+    
     func searchUsers(withKeyword keyword: String, page: Int, completion: @escaping NetworkCompletionHandler<[GithubUser]>)
 }

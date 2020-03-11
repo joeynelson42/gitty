@@ -11,26 +11,31 @@ import UIKit
 class RootViewController: UIViewController {
     
     // MARK: - Properties
+    var dependencyContainer: DependencyContainer
     
     // MARK: - View
     let baseView = RootView()
     
-    
     // MARK: - Life Cycle
+    init(dependencyContainer: DependencyContainer) {
+        self.dependencyContainer = dependencyContainer
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         super.loadView()
-        
         view = baseView
-        setupViewOnLoad()
-    }
-    
-    /// Setup View upon loading ViewController (e.g. add targets to buttons, update labels with data, etc.)
-    func setupViewOnLoad() {
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let searchViewController = dependencyContainer.buildUserSearchViewController()
+        let navigationController = UINavigationController(rootViewController: searchViewController)
+        add(childController: navigationController, toView: baseView)
     }
 }

@@ -28,6 +28,10 @@
 		F1502EEA241973FF00291B5D /* DataProviderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EE9241973FF00291B5D /* DataProviderFactory.swift */; };
 		F1502EEC2419741B00291B5D /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EEB2419741B00291B5D /* DependencyContainer.swift */; };
 		F1502EF0241974EC00291B5D /* GithubUserDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EEF241974EC00291B5D /* GithubUserDataProvider.swift */; };
+		F1502EF324197C6800291B5D /* GithubUserSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EF224197C6800291B5D /* GithubUserSearchResult.swift */; };
+		F1502EF624197E1600291B5D /* UIViewController+Children.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EF524197E1600291B5D /* UIViewController+Children.swift */; };
+		F1502EF824197E1F00291B5D /* UIView+Anchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EF724197E1F00291B5D /* UIView+Anchors.swift */; };
+		F1502EFA2419806700291B5D /* testUsers.json in Resources */ = {isa = PBXBuildFile; fileRef = F1502EF92419806700291B5D /* testUsers.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +79,10 @@
 		F1502EE9241973FF00291B5D /* DataProviderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderFactory.swift; sourceTree = "<group>"; };
 		F1502EEB2419741B00291B5D /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		F1502EEF241974EC00291B5D /* GithubUserDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserDataProvider.swift; sourceTree = "<group>"; };
+		F1502EF224197C6800291B5D /* GithubUserSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserSearchResult.swift; sourceTree = "<group>"; };
+		F1502EF524197E1600291B5D /* UIViewController+Children.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Children.swift"; sourceTree = "<group>"; };
+		F1502EF724197E1F00291B5D /* UIView+Anchors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Anchors.swift"; sourceTree = "<group>"; };
+		F1502EF92419806700291B5D /* testUsers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = testUsers.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				F1502E9F24196E4300291B5D /* Assets.xcassets */,
+				F1502EF92419806700291B5D /* testUsers.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -197,6 +206,7 @@
 				F1502ECF2419703E00291B5D /* Root */,
 				F1502EDD2419733900291B5D /* Search */,
 				F1502EE22419739700291B5D /* Profile */,
+				F1502EF424197E0600291B5D /* Extensions */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -230,6 +240,7 @@
 		F1502ED82419722E00291B5D /* StandardService */ = {
 			isa = PBXGroup;
 			children = (
+				F1502EF124197C4000291B5D /* Network response model */,
 				F1502ED92419724100291B5D /* StandardNetworkService.swift */,
 				F1502EDB2419727200291B5D /* StandardGithubUserClient.swift */,
 			);
@@ -269,6 +280,23 @@
 				F1502EEF241974EC00291B5D /* GithubUserDataProvider.swift */,
 			);
 			path = DataProviders;
+			sourceTree = "<group>";
+		};
+		F1502EF124197C4000291B5D /* Network response model */ = {
+			isa = PBXGroup;
+			children = (
+				F1502EF224197C6800291B5D /* GithubUserSearchResult.swift */,
+			);
+			path = "Network response model";
+			sourceTree = "<group>";
+		};
+		F1502EF424197E0600291B5D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F1502EF524197E1600291B5D /* UIViewController+Children.swift */,
+				F1502EF724197E1F00291B5D /* UIView+Anchors.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,6 +405,7 @@
 			files = (
 				F1502EA324196E4300291B5D /* LaunchScreen.storyboard in Resources */,
 				F1502EA024196E4300291B5D /* Assets.xcassets in Resources */,
+				F1502EFA2419806700291B5D /* testUsers.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +430,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1502EF624197E1600291B5D /* UIViewController+Children.swift in Sources */,
 				F1502EF0241974EC00291B5D /* GithubUserDataProvider.swift in Sources */,
 				F1502EDA2419724100291B5D /* StandardNetworkService.swift in Sources */,
 				F1502EE8241973E900291B5D /* ViewControllerFactory.swift in Sources */,
@@ -415,7 +445,9 @@
 				F1502EE4241973A800291B5D /* UserProfileView.swift in Sources */,
 				F1502EE6241973B100291B5D /* UserProfileViewController.swift in Sources */,
 				F1502ED6241970F700291B5D /* GithubUser.swift in Sources */,
+				F1502EF324197C6800291B5D /* GithubUserSearchResult.swift in Sources */,
 				F1502E9924196E4000291B5D /* SceneDelegate.swift in Sources */,
+				F1502EF824197E1F00291B5D /* UIView+Anchors.swift in Sources */,
 				F1502EC924196F7200291B5D /* RootView.swift in Sources */,
 				F1502EDF2419735A00291B5D /* UserSearchViewController.swift in Sources */,
 			);
