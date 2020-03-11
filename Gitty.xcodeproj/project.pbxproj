@@ -20,6 +20,10 @@
 		F1502ED6241970F700291B5D /* GithubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502ED5241970F700291B5D /* GithubUser.swift */; };
 		F1502EDA2419724100291B5D /* StandardNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502ED92419724100291B5D /* StandardNetworkService.swift */; };
 		F1502EDC2419727200291B5D /* StandardGithubUserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EDB2419727200291B5D /* StandardGithubUserClient.swift */; };
+		F1502EDF2419735A00291B5D /* UserSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EDE2419735A00291B5D /* UserSearchViewController.swift */; };
+		F1502EE12419736300291B5D /* UserSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EE02419736300291B5D /* UserSearchView.swift */; };
+		F1502EE4241973A800291B5D /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EE3241973A800291B5D /* UserProfileView.swift */; };
+		F1502EE6241973B100291B5D /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EE5241973B100291B5D /* UserProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,10 @@
 		F1502ED5241970F700291B5D /* GithubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUser.swift; sourceTree = "<group>"; };
 		F1502ED92419724100291B5D /* StandardNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardNetworkService.swift; sourceTree = "<group>"; };
 		F1502EDB2419727200291B5D /* StandardGithubUserClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardGithubUserClient.swift; sourceTree = "<group>"; };
+		F1502EDE2419735A00291B5D /* UserSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchViewController.swift; sourceTree = "<group>"; };
+		F1502EE02419736300291B5D /* UserSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchView.swift; sourceTree = "<group>"; };
+		F1502EE3241973A800291B5D /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		F1502EE5241973B100291B5D /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				F1502ECF2419703E00291B5D /* Root */,
+				F1502EDD2419733900291B5D /* Search */,
+				F1502EE22419739700291B5D /* Profile */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -213,6 +223,24 @@
 				F1502EDB2419727200291B5D /* StandardGithubUserClient.swift */,
 			);
 			path = StandardService;
+			sourceTree = "<group>";
+		};
+		F1502EDD2419733900291B5D /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F1502EDE2419735A00291B5D /* UserSearchViewController.swift */,
+				F1502EE02419736300291B5D /* UserSearchView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		F1502EE22419739700291B5D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F1502EE5241973B100291B5D /* UserProfileViewController.swift */,
+				F1502EE3241973A800291B5D /* UserProfileView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,13 +375,17 @@
 			files = (
 				F1502EDA2419724100291B5D /* StandardNetworkService.swift in Sources */,
 				F1502ED22419709D00291B5D /* NetworkService.swift in Sources */,
+				F1502EE12419736300291B5D /* UserSearchView.swift in Sources */,
 				F1502E9724196E4000291B5D /* AppDelegate.swift in Sources */,
 				F1502ED4241970D900291B5D /* GithubUserClient.swift in Sources */,
 				F1502EDC2419727200291B5D /* StandardGithubUserClient.swift in Sources */,
 				F1502EC724196F6900291B5D /* RootViewController.swift in Sources */,
+				F1502EE4241973A800291B5D /* UserProfileView.swift in Sources */,
+				F1502EE6241973B100291B5D /* UserProfileViewController.swift in Sources */,
 				F1502ED6241970F700291B5D /* GithubUser.swift in Sources */,
 				F1502E9924196E4000291B5D /* SceneDelegate.swift in Sources */,
 				F1502EC924196F7200291B5D /* RootView.swift in Sources */,
+				F1502EDF2419735A00291B5D /* UserSearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
