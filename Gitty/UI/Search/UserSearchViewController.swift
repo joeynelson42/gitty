@@ -18,13 +18,15 @@ class UserSearchViewController: UIViewController {
     }
     
     private var userDataProvider: GithubUserDataProvider
+    private var imageDataProvider: ImageDataProvider
     
     // MARK: - View
     private let baseView = UserSearchView()
     
     // MARK: - Life Cycle
-    init(userDataProvider: GithubUserDataProvider) {
+    init(userDataProvider: GithubUserDataProvider, imageDataProvider: ImageDataProvider) {
         self.userDataProvider = userDataProvider
+        self.imageDataProvider = imageDataProvider
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -76,8 +78,7 @@ extension UserSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let user = searchResults[indexPath.row]
-        print(user.username)
+//        let user = searchResults[indexPath.row]
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -99,6 +100,11 @@ extension UserSearchViewController: UITableViewDataSource {
         let user = searchResults[indexPath.row]
         
         cell.usernameLabel.text = user.username
+        
+        guard let url = URL(string: user.avatarURL) else { return cell }
+        imageDataProvider.getImage(for: url) { [weak cell] (image, _) in
+            cell?.avatarImageView.image = image
+        }
         
         return cell
     }

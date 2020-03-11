@@ -12,9 +12,11 @@ import Foundation
 final class DependencyContainer {
     
     var networkService: NetworkService
+    var imageStore: ImageStore
     
-    init(networkService: NetworkService) {
+    init(networkService: NetworkService, imageStore: ImageStore) {
         self.networkService = networkService
+        self.imageStore = imageStore
     }
 }
 
@@ -22,10 +24,14 @@ extension DependencyContainer: DataProviderFactory {
     func buildGithubUserDataProvider() -> GithubUserDataProvider {
         return GithubUserDataProvider(client: networkService.userClient)
     }
+    
+    func buildImageDataProvider() -> ImageDataProvider {
+        return ImageDataProvider(store: imageStore, client: networkService.imageClient)
+    }
 }
 
 extension DependencyContainer: ViewControllerFactory {
     func buildUserSearchViewController() -> UserSearchViewController {
-        return UserSearchViewController(userDataProvider: buildGithubUserDataProvider())
+        return UserSearchViewController(userDataProvider: buildGithubUserDataProvider(), imageDataProvider: buildImageDataProvider())
     }
 }

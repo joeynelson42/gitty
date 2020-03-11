@@ -9,5 +9,9 @@
 import Foundation
 
 protocol DataProviderFactory {
+    
     func buildGithubUserDataProvider() -> GithubUserDataProvider
+    
+    func buildImageDataProvider() -> ImageDataProvider
+    
 }

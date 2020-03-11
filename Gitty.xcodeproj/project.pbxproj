@@ -37,6 +37,7 @@
 		F1502F0124198D2900291B5D /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502F0024198D2900291B5D /* ImageStore.swift */; };
 		F1502F0324198D5800291B5D /* ImageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502F0224198D5800291B5D /* ImageClient.swift */; };
 		F1502F0524198D7300291B5D /* StandardImageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502F0424198D7300291B5D /* StandardImageClient.swift */; };
+		F1502F0724198DCD00291B5D /* ImageDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502F0624198DCD00291B5D /* ImageDataProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		F1502F0024198D2900291B5D /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		F1502F0224198D5800291B5D /* ImageClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClient.swift; sourceTree = "<group>"; };
 		F1502F0424198D7300291B5D /* StandardImageClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardImageClient.swift; sourceTree = "<group>"; };
+		F1502F0624198DCD00291B5D /* ImageDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				F1502EEF241974EC00291B5D /* GithubUserDataProvider.swift */,
+				F1502F0624198DCD00291B5D /* ImageDataProvider.swift */,
 			);
 			path = DataProviders;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				F1502EF824197E1F00291B5D /* UIView+Anchors.swift in Sources */,
 				F1502EC924196F7200291B5D /* RootView.swift in Sources */,
 				F1502EDF2419735A00291B5D /* UserSearchViewController.swift in Sources */,
+				F1502F0724198DCD00291B5D /* ImageDataProvider.swift in Sources */,
 				F1502F0124198D2900291B5D /* ImageStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

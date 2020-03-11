@@ -33,6 +33,12 @@ class UserSearchTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        avatarImageView.image = nil
+    }
+    
     /// Set view/subviews appearances
     fileprivate func configureSubviews() {
         avatarImageView.contentMode = .scaleAspectFit
