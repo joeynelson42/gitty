@@ -22,7 +22,7 @@ final class StandardGithubUserClient: GithubUserClient {
         let searchTerms = keyword.replacingOccurrences(of: " ", with: "+")
         
         var components = baseURLComponents
-        components.path = "/search/repositories"
+        components.path = "/search/users"
         components.queryItems = [
             URLQueryItem(name: "q", value: searchTerms),
             URLQueryItem(name: "page", value: "\(page)")

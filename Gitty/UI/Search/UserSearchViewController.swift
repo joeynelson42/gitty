@@ -42,8 +42,7 @@ class UserSearchViewController: UIViewController {
         super.viewDidLoad()
         
         userDataProvider.getSearchResults(forKeyword: "nelson", page: 0) { (users, errorMessage) in
-            print(users)
-            print(errorMessage)
+            
         }
     }
 }
