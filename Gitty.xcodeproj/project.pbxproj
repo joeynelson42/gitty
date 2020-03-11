@@ -15,6 +15,11 @@
 		F1502EB924196E4300291B5D /* GittyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EB824196E4300291B5D /* GittyUITests.swift */; };
 		F1502EC724196F6900291B5D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EC624196F6900291B5D /* RootViewController.swift */; };
 		F1502EC924196F7200291B5D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EC824196F7200291B5D /* RootView.swift */; };
+		F1502ED22419709D00291B5D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502ED12419709D00291B5D /* NetworkService.swift */; };
+		F1502ED4241970D900291B5D /* GithubUserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502ED3241970D900291B5D /* GithubUserClient.swift */; };
+		F1502ED6241970F700291B5D /* GithubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502ED5241970F700291B5D /* GithubUser.swift */; };
+		F1502EDA2419724100291B5D /* StandardNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502ED92419724100291B5D /* StandardNetworkService.swift */; };
+		F1502EDC2419727200291B5D /* StandardGithubUserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EDB2419727200291B5D /* StandardGithubUserClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		F1502EBA24196E4300291B5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1502EC624196F6900291B5D /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		F1502EC824196F7200291B5D /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		F1502ED12419709D00291B5D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		F1502ED3241970D900291B5D /* GithubUserClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserClient.swift; sourceTree = "<group>"; };
+		F1502ED5241970F700291B5D /* GithubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUser.swift; sourceTree = "<group>"; };
+		F1502ED92419724100291B5D /* StandardNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardNetworkService.swift; sourceTree = "<group>"; };
+		F1502EDB2419727200291B5D /* StandardGithubUserClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardGithubUserClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +158,9 @@
 		F1502ECC2419702600291B5D /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				F1502ED82419722E00291B5D /* StandardService */,
+				F1502ED02419708D00291B5D /* Protocols */,
+				F1502ED7241970FC00291B5D /* Model */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -174,6 +187,32 @@
 				F1502EC824196F7200291B5D /* RootView.swift */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		F1502ED02419708D00291B5D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F1502ED12419709D00291B5D /* NetworkService.swift */,
+				F1502ED3241970D900291B5D /* GithubUserClient.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F1502ED7241970FC00291B5D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F1502ED5241970F700291B5D /* GithubUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F1502ED82419722E00291B5D /* StandardService */ = {
+			isa = PBXGroup;
+			children = (
+				F1502ED92419724100291B5D /* StandardNetworkService.swift */,
+				F1502EDB2419727200291B5D /* StandardGithubUserClient.swift */,
+			);
+			path = StandardService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,8 +345,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1502EDA2419724100291B5D /* StandardNetworkService.swift in Sources */,
+				F1502ED22419709D00291B5D /* NetworkService.swift in Sources */,
 				F1502E9724196E4000291B5D /* AppDelegate.swift in Sources */,
+				F1502ED4241970D900291B5D /* GithubUserClient.swift in Sources */,
+				F1502EDC2419727200291B5D /* StandardGithubUserClient.swift in Sources */,
 				F1502EC724196F6900291B5D /* RootViewController.swift in Sources */,
+				F1502ED6241970F700291B5D /* GithubUser.swift in Sources */,
 				F1502E9924196E4000291B5D /* SceneDelegate.swift in Sources */,
 				F1502EC924196F7200291B5D /* RootView.swift in Sources */,
 			);
