@@ -24,6 +24,10 @@
 		F1502EE12419736300291B5D /* UserSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EE02419736300291B5D /* UserSearchView.swift */; };
 		F1502EE4241973A800291B5D /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EE3241973A800291B5D /* UserProfileView.swift */; };
 		F1502EE6241973B100291B5D /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EE5241973B100291B5D /* UserProfileViewController.swift */; };
+		F1502EE8241973E900291B5D /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EE7241973E900291B5D /* ViewControllerFactory.swift */; };
+		F1502EEA241973FF00291B5D /* DataProviderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EE9241973FF00291B5D /* DataProviderFactory.swift */; };
+		F1502EEC2419741B00291B5D /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EEB2419741B00291B5D /* DependencyContainer.swift */; };
+		F1502EF0241974EC00291B5D /* GithubUserDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EEF241974EC00291B5D /* GithubUserDataProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,10 @@
 		F1502EE02419736300291B5D /* UserSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchView.swift; sourceTree = "<group>"; };
 		F1502EE3241973A800291B5D /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		F1502EE5241973B100291B5D /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		F1502EE7241973E900291B5D /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
+		F1502EE9241973FF00291B5D /* DataProviderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderFactory.swift; sourceTree = "<group>"; };
+		F1502EEB2419741B00291B5D /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		F1502EEF241974EC00291B5D /* GithubUserDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserDataProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +184,9 @@
 		F1502ECD2419702F00291B5D /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				F1502EED241974C600291B5D /* Protocols */,
+				F1502EEE241974CE00291B5D /* DataProviders */,
+				F1502EEB2419741B00291B5D /* DependencyContainer.swift */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -241,6 +252,23 @@
 				F1502EE3241973A800291B5D /* UserProfileView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		F1502EED241974C600291B5D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F1502EE7241973E900291B5D /* ViewControllerFactory.swift */,
+				F1502EE9241973FF00291B5D /* DataProviderFactory.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F1502EEE241974CE00291B5D /* DataProviders */ = {
+			isa = PBXGroup;
+			children = (
+				F1502EEF241974EC00291B5D /* GithubUserDataProvider.swift */,
+			);
+			path = DataProviders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,10 +401,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1502EF0241974EC00291B5D /* GithubUserDataProvider.swift in Sources */,
 				F1502EDA2419724100291B5D /* StandardNetworkService.swift in Sources */,
+				F1502EE8241973E900291B5D /* ViewControllerFactory.swift in Sources */,
 				F1502ED22419709D00291B5D /* NetworkService.swift in Sources */,
 				F1502EE12419736300291B5D /* UserSearchView.swift in Sources */,
 				F1502E9724196E4000291B5D /* AppDelegate.swift in Sources */,
+				F1502EEA241973FF00291B5D /* DataProviderFactory.swift in Sources */,
+				F1502EEC2419741B00291B5D /* DependencyContainer.swift in Sources */,
 				F1502ED4241970D900291B5D /* GithubUserClient.swift in Sources */,
 				F1502EDC2419727200291B5D /* StandardGithubUserClient.swift in Sources */,
 				F1502EC724196F6900291B5D /* RootViewController.swift in Sources */,
