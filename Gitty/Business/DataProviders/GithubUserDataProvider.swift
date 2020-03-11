@@ -18,11 +18,13 @@ final class GithubUserDataProvider {
     
     func getSearchResults(forKeyword keyword: String, page: Int, completion: @escaping (_ users: [GithubUser], _ errorMessage: String?) -> ()) {
         client.searchUsers(withKeyword: keyword, page: page) { (users, error) in
-            if let users = users {
-                completion(users, nil)
-            } else {
-                let errorMessage = error != nil ? error!.localizedDescription : "Something went horribly wrong."
-                completion([], errorMessage)
+            DispatchQueue.main.async {
+                if let users = users {
+                    completion(users, nil)
+                } else {
+                    let errorMessage = error != nil ? error!.localizedDescription : "Something went horribly wrong."
+                    completion([], errorMessage)
+                }                
             }
         }
     }

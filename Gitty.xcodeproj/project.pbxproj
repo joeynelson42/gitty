@@ -32,6 +32,7 @@
 		F1502EF624197E1600291B5D /* UIViewController+Children.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EF524197E1600291B5D /* UIViewController+Children.swift */; };
 		F1502EF824197E1F00291B5D /* UIView+Anchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EF724197E1F00291B5D /* UIView+Anchors.swift */; };
 		F1502EFA2419806700291B5D /* testUsers.json in Resources */ = {isa = PBXBuildFile; fileRef = F1502EF92419806700291B5D /* testUsers.json */; };
+		F1502EFC24198A0900291B5D /* UserSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EFB24198A0900291B5D /* UserSearchTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		F1502EF524197E1600291B5D /* UIViewController+Children.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Children.swift"; sourceTree = "<group>"; };
 		F1502EF724197E1F00291B5D /* UIView+Anchors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Anchors.swift"; sourceTree = "<group>"; };
 		F1502EF92419806700291B5D /* testUsers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = testUsers.json; sourceTree = "<group>"; };
+		F1502EFB24198A0900291B5D /* UserSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +254,7 @@
 			children = (
 				F1502EDE2419735A00291B5D /* UserSearchViewController.swift */,
 				F1502EE02419736300291B5D /* UserSearchView.swift */,
+				F1502EFB24198A0900291B5D /* UserSearchTableViewCell.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1502EFC24198A0900291B5D /* UserSearchTableViewCell.swift in Sources */,
 				F1502EF624197E1600291B5D /* UIViewController+Children.swift in Sources */,
 				F1502EF0241974EC00291B5D /* GithubUserDataProvider.swift in Sources */,
 				F1502EDA2419724100291B5D /* StandardNetworkService.swift in Sources */,

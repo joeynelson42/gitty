@@ -11,10 +11,16 @@ import UIKit
 class UserSearchViewController: UIViewController {
     
     // MARK: - Properties
-    var userDataProvider: GithubUserDataProvider
+    private var searchResults: [GithubUser] = [] {
+        didSet {
+            baseView.table.reloadData()
+        }
+    }
+    
+    private var userDataProvider: GithubUserDataProvider
     
     // MARK: - View
-    let baseView = UserSearchView()
+    private let baseView = UserSearchView()
     
     // MARK: - Life Cycle
     init(userDataProvider: GithubUserDataProvider) {
@@ -35,14 +41,65 @@ class UserSearchViewController: UIViewController {
     
     /// Setup View upon loading ViewController (e.g. add targets to buttons, update labels with data, etc.)
     func setupViewOnLoad() {
+        baseView.searchBar.delegate = self
         
+        baseView.table.dataSource = self
+        baseView.table.delegate = self
+    }
+}
+
+extension UserSearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+        userDataProvider.getSearchResults(forKeyword: searchText, page: 0) { [weak self] (users, errorMessage) in
+            if let errorMessage = errorMessage {
+                print(errorMessage)
+            } else {
+                self?.searchResults = users
+            }
+        }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+}
+
+// UIScrollViewDelegate
+extension UserSearchViewController {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        baseView.searchBar.resignFirstResponder()
+    }
+}
+
+extension UserSearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
-        userDataProvider.getSearchResults(forKeyword: "nelson", page: 0) { (users, errorMessage) in
-            
-        }
+        let user = searchResults[indexPath.row]
+        print(user.username)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+}
+
+extension UserSearchViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchResults.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as! UserSearchTableViewCell
+        let user = searchResults[indexPath.row]
+        
+        cell.usernameLabel.text = user.username
+        
+        return cell
     }
 }
