@@ -13,10 +13,13 @@ struct GithubUser: Codable {
     var username: String
     var avatarURL: String
     var reposURL: String
+    var profileURL: String
+    
+    var profile: GithubUserProfileDetails?
     var repos: [GithubRepository]?
     
     enum CodingKeys: String, CodingKey {
-      case id, login, avatar_url, repos_url
+      case id, login, avatar_url, repos_url, url
     }
     
     init(from decoder: Decoder) throws {
@@ -24,6 +27,7 @@ struct GithubUser: Codable {
         id = try container.decode(Int.self, forKey: .id)
         username = try container.decode(String.self, forKey: .login)
         avatarURL = try container.decode(String.self, forKey: .avatar_url)
+        profileURL = try container.decode(String.self, forKey: .url)
         reposURL = try container.decode(String.self, forKey: .repos_url)
     }
     

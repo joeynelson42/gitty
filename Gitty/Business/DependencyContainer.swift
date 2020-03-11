@@ -32,6 +32,10 @@ extension DependencyContainer: DataProviderFactory {
 
 extension DependencyContainer: ViewControllerFactory {
     func buildUserSearchViewController() -> UserSearchViewController {
-        return UserSearchViewController(userDataProvider: buildGithubUserDataProvider(), imageDataProvider: buildImageDataProvider())
+        return UserSearchViewController(userDataProvider: buildGithubUserDataProvider(), imageDataProvider: buildImageDataProvider(), controllerFactory: self)
+    }
+    
+    func buildUserProfileViewController(user: GithubUser) -> UserProfileViewController {
+        return UserProfileViewController(user: user)
     }
 }

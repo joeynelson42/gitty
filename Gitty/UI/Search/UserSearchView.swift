@@ -30,6 +30,8 @@ class UserSearchView: UIView {
     
     /// Set view/subviews appearances
     fileprivate func configureSubviews() {
+        backgroundColor = .white
+        
         searchBar.autocorrectionType = .no
         searchBar.autocapitalizationType = .none
         

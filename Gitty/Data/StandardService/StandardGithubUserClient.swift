@@ -13,6 +13,7 @@ final class StandardGithubUserClient: GithubUserClient {
     var baseURLComponents: URLComponents
     
     private let defaultSession = URLSession(configuration: .default)
+    private let searchCache = Cache<String, GithubUserSearchResult>()
     
     init(baseURLComponents: URLComponents) {
         self.baseURLComponents = baseURLComponents
@@ -21,11 +22,16 @@ final class StandardGithubUserClient: GithubUserClient {
     func searchUsers(withKeyword keyword: String, page: Int, completion: @escaping NetworkCompletionHandler<[GithubUser]>) {
         let searchTerms = keyword.replacingOccurrences(of: " ", with: "+")
         
+        if let cachedResult = searchCache.value(for: searchTerms) {
+            completion(cachedResult.users, nil)
+        }
+        
         var components = baseURLComponents
         components.path = "/search/users"
         components.queryItems = [
             URLQueryItem(name: "q", value: searchTerms),
-            URLQueryItem(name: "page", value: "\(page)")
+            URLQueryItem(name: "page", value: "\(page)"),
+            URLQueryItem(name: "Authentication", value: "eec8134b5ee5e07249271595f73c4d3b01e5549e")
         ]
         
         guard let url = components.url else {
@@ -33,9 +39,22 @@ final class StandardGithubUserClient: GithubUserClient {
             return
         }
         
-        performGET(url: url) { (result: GithubUserSearchResult?, error) in
+        performGET(url: url) { [weak self] (result: GithubUserSearchResult?, error) in
+            if let result = result {
+                self?.searchCache.cache(value: result, for: searchTerms)
+            }
+            
             completion(result?.users ?? nil, error)
         }
+    }
+    
+    func getUserProfileDetails(forUser user: GithubUser, completion: @escaping NetworkCompletionHandler<GithubUserProfileDetails>) {
+        guard let url = URL(string: user.profileURL) else {
+            completion(nil, NetworkServiceError(localizedDescription: "Failed to construct URL."))
+            return
+        }
+        
+        performGET(url: url, completion: completion)
     }
     
     func getRepos(forUser user: GithubUser, completion: @escaping NetworkCompletionHandler<[GithubRepository]>) {
@@ -48,12 +67,15 @@ final class StandardGithubUserClient: GithubUserClient {
     }
     
     private func performGET<T: Decodable>(url: URL, completion: @escaping NetworkCompletionHandler<T>) {
+        
         let dataTask = defaultSession.dataTask(with: url) { data, response, error in
             if let error = error {
                 completion(nil, error)
             } else if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
                 let decoder = JSONDecoder()
                 do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
                     let result = try decoder.decode(T.self, from: data)
                     completion(result, nil)
                 } catch {

@@ -39,6 +39,7 @@
 		F1502F0724198DCD00291B5D /* ImageDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502F0624198DCD00291B5D /* ImageDataProvider.swift */; };
 		F1502F092419915300291B5D /* GithubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502F082419915300291B5D /* GithubRepository.swift */; };
 		F1502F0B2419997C00291B5D /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502F0A2419997C00291B5D /* Store.swift */; };
+		F1502F0D2419A5B400291B5D /* GithubUserProfileDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502F0C2419A5B400291B5D /* GithubUserProfileDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		F1502F0624198DCD00291B5D /* ImageDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataProvider.swift; sourceTree = "<group>"; };
 		F1502F082419915300291B5D /* GithubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepository.swift; sourceTree = "<group>"; };
 		F1502F0A2419997C00291B5D /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		F1502F0C2419A5B400291B5D /* GithubUserProfileDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserProfileDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				F1502ED5241970F700291B5D /* GithubUser.swift */,
+				F1502F0C2419A5B400291B5D /* GithubUserProfileDetails.swift */,
 				F1502F082419915300291B5D /* GithubRepository.swift */,
 			);
 			path = Model;
@@ -465,6 +468,7 @@
 				F1502EF0241974EC00291B5D /* GithubUserDataProvider.swift in Sources */,
 				F1502EDA2419724100291B5D /* StandardNetworkService.swift in Sources */,
 				F1502EFF24198D1000291B5D /* Cache.swift in Sources */,
+				F1502F0D2419A5B400291B5D /* GithubUserProfileDetails.swift in Sources */,
 				F1502EE8241973E900291B5D /* ViewControllerFactory.swift in Sources */,
 				F1502F0324198D5800291B5D /* ImageClient.swift in Sources */,
 				F1502ED22419709D00291B5D /* NetworkService.swift in Sources */,

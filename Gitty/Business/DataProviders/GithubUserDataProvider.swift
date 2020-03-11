@@ -31,6 +31,26 @@ final class GithubUserDataProvider {
         }
     }
     
+    func getUserProfile(forUser user: GithubUser, completion: @escaping (_ repos: GithubUserProfileDetails?, _ errorMessage: String?) -> ()) {
+        if let user = store.getUser(with: user.id), let profile = user.profile {
+            completion(profile, nil)
+        } else {
+            client.getUserProfileDetails(forUser: user) { [weak self] (profile, error) in
+                DispatchQueue.main.async {
+                    if let profile = profile {
+                        var storedUser = user
+                        storedUser.profile = profile
+                        self?.store.storeUser(storedUser, with: storedUser.id)
+                        completion(profile, nil)
+                    } else {
+                        let errorMessage = error != nil ? error!.localizedDescription : "Something went horribly wrong."
+                        completion(nil, errorMessage)
+                    }
+                }
+            }
+        }
+    }
+    
     func getRepos(forUser user: GithubUser, completion: @escaping (_ repos: [GithubRepository], _ errorMessage: String?) -> ()) {
         if let user = store.getUser(with: user.id), let repos = user.repos {
             completion(repos, nil)

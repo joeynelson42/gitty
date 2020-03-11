@@ -30,7 +30,7 @@ class UserProfileView: UIView {
     
     /// Set view/subviews appearances
     fileprivate func configureSubviews() {
-        
+        backgroundColor = .white
     }
     
     /// Set AccessibilityIdentifiers for view/subviews

@@ -10,4 +10,5 @@ import Foundation
 
 protocol ViewControllerFactory {
     func buildUserSearchViewController() -> UserSearchViewController
+    func buildUserProfileViewController(user: GithubUser) -> UserProfileViewController
 }

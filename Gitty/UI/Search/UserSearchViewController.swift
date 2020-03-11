@@ -19,14 +19,16 @@ class UserSearchViewController: UIViewController {
     
     private var userDataProvider: GithubUserDataProvider
     private var imageDataProvider: ImageDataProvider
+    private var controllerFactory: ViewControllerFactory
     
     // MARK: - View
     private let baseView = UserSearchView()
     
     // MARK: - Life Cycle
-    init(userDataProvider: GithubUserDataProvider, imageDataProvider: ImageDataProvider) {
+    init(userDataProvider: GithubUserDataProvider, imageDataProvider: ImageDataProvider, controllerFactory: ViewControllerFactory) {
         self.userDataProvider = userDataProvider
         self.imageDataProvider = imageDataProvider
+        self.controllerFactory = controllerFactory
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -78,7 +80,9 @@ extension UserSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-//        let user = searchResults[indexPath.row]
+        let user = searchResults[indexPath.row]
+        let profileViewController = controllerFactory.buildUserProfileViewController(user: user)
+        navigationController?.pushViewController(profileViewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -109,11 +113,10 @@ extension UserSearchViewController: UITableViewDataSource {
         
         if let repos = user.repos {
             cell.repoLabel.text = "Repos: \(repos.count)"
-        } else if indexPath.row < 3 {
-            userDataProvider.getRepos(forUser: user) { [weak self] (repos, _) in
-                print("hello")
-                self?.searchResults[indexPath.row].repos = repos
-                cell.repoLabel.text = "Repos: \(repos.count)"
+        } else if indexPath.row == 0 { // limit so I don't blow through the GitHub API rate limit
+            userDataProvider.getUserProfile(forUser: user) { (profile, _) in
+                let count = profile != nil ? profile!.repoCount : 0
+                cell.repoLabel.text = "Repos: \(count)"
             }
         }
         
