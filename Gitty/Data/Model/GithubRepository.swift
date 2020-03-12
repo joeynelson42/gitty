@@ -13,9 +13,10 @@ struct GithubRepository: Codable {
     var name: String
     var forksCount: Int
     var stargazersCount: Int
+    var url: String
     
     enum CodingKeys: String, CodingKey {
-      case id, name, forks_count, stargazers_count
+      case id, name, forks_count, stargazers_count, html_url
     }
     
     init(from decoder: Decoder) throws {
@@ -24,6 +25,7 @@ struct GithubRepository: Codable {
         name = try container.decode(String.self, forKey: .name)
         forksCount = try container.decode(Int.self, forKey: .forks_count)
         stargazersCount = try container.decode(Int.self, forKey: .stargazers_count)
+        url = try container.decode(String.self, forKey: .html_url)
     }
     
     func encode(to encoder: Encoder) throws {

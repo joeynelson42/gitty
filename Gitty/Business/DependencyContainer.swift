@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SafariServices
 
 /// The DependencyContainer is an encapsulation of the main dependencies within the UI layer, i.e. Factories and NetworkService.
 final class DependencyContainer {
@@ -37,5 +38,12 @@ extension DependencyContainer: ViewControllerFactory {
     
     func buildUserProfileViewController(user: GithubUser) -> UserProfileViewController {
         return UserProfileViewController(user: user, dataProvider: buildGithubUserDataProvider(), imageDataProvider: buildImageDataProvider(), controllerFactory: self)
+    }
+    
+    func buildRepositoryDetailViewController(repository: GithubRepository) -> UIViewController {
+        guard let url = URL(string: repository.url) else {
+            return UIViewController() // TODO: Don't do this.
+        }
+        return SFSafariViewController(url: url)
     }
 }

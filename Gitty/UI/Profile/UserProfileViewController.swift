@@ -48,9 +48,10 @@ class UserProfileViewController: UIViewController {
         title = user.username
         
         detailsController = ProfileDetailsViewController.init(imageDataProvider: imageDataProvider)
-        listController = RepositoryListViewController()
-        
         add(childController: detailsController, toView: baseView.profileDetailsContainer)
+        
+        listController = RepositoryListViewController()
+        listController.delegate = self
         add(childController: listController, toView: baseView.repositoryListContainer)
     }
     
@@ -65,5 +66,12 @@ class UserProfileViewController: UIViewController {
         dataProvider.getRepos(forUser: user) { [weak self] (repos, _) in
             self?.listController.set(repositories: repos)
         }
+    }
+}
+
+extension UserProfileViewController: RepositoryListViewControllerDelegate {
+    func didSelect(repository: GithubRepository, controller: RepositoryListViewController) {
+        let detailController = controllerFactory.buildRepositoryDetailViewController(repository: repository)
+        present(detailController, animated: true)
     }
 }

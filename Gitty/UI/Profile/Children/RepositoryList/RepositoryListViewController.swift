@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol RepositoryListViewControllerDelegate {
+    func didSelect(repository: GithubRepository, controller: RepositoryListViewController)
+}
+
 class RepositoryListViewController: UIViewController {
     
     // MARK: - Properties
+    var delegate: RepositoryListViewControllerDelegate?
+    
     private var repositories: [GithubRepository] = [] {
         didSet {
             filtered = self.repositories
@@ -75,6 +81,7 @@ extension RepositoryListViewController {
 extension RepositoryListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        delegate?.didSelect(repository: filtered[indexPath.row], controller: self)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

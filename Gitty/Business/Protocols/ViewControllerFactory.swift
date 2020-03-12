@@ -6,11 +6,13 @@
 //  Copyright © 2020 nelsonje. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol ViewControllerFactory {
     
     func buildUserSearchViewController() -> UserSearchViewController
     
     func buildUserProfileViewController(user: GithubUser) -> UserProfileViewController
+    
+    func buildRepositoryDetailViewController(repository: GithubRepository) -> UIViewController
 }
