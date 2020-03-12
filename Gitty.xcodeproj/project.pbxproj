@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F111B2622419BD4D0091C277 /* SearchBarTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F111B2612419BD4D0091C277 /* SearchBarTableViewHeader.swift */; };
 		F1502E9724196E4000291B5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502E9624196E4000291B5D /* AppDelegate.swift */; };
 		F1502E9924196E4000291B5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502E9824196E4000291B5D /* SceneDelegate.swift */; };
 		F1502EA024196E4300291B5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1502E9F24196E4300291B5D /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F111B2612419BD4D0091C277 /* SearchBarTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarTableViewHeader.swift; sourceTree = "<group>"; };
 		F1502E9324196E4000291B5D /* Gitty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gitty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1502E9624196E4000291B5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1502E9824196E4000291B5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 				F1502F182419AF4400291B5D /* RepositoryListViewController.swift */,
 				F1502F162419AF3B00291B5D /* RepositoryListView.swift */,
 				F1502F1A2419AF7800291B5D /* RepositoryListTableViewCell.swift */,
+				F111B2612419BD4D0091C277 /* SearchBarTableViewHeader.swift */,
 			);
 			path = RepositoryList;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				F1502EF0241974EC00291B5D /* GithubUserDataProvider.swift in Sources */,
 				F1502EDA2419724100291B5D /* StandardNetworkService.swift in Sources */,
 				F1502EFF24198D1000291B5D /* Cache.swift in Sources */,
+				F111B2622419BD4D0091C277 /* SearchBarTableViewHeader.swift in Sources */,
 				F1502F0D2419A5B400291B5D /* GithubUserProfileDetails.swift in Sources */,
 				F1502F112419AD5F00291B5D /* ProfileDetailsViewController.swift in Sources */,
 				F1502EE8241973E900291B5D /* ViewControllerFactory.swift in Sources */,

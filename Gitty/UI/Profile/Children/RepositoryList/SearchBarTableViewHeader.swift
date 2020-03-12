@@ -1,5 +1,5 @@
 //
-//  RepositoryListView.swift
+//  SearchBarTableViewHeader.swift
 //  Gitty
 //
 //  Created by Joey Nelson on 3/11/20.
@@ -8,30 +8,37 @@
 
 import UIKit
 
-class RepositoryListView: UIView {
+class SearchBarTableViewHeader: UITableViewHeaderFooterView {
+    
+    // MARK: Properties
+    var delegate: UISearchBarDelegate? {
+        didSet {
+            searchBar.delegate = self.delegate
+        }
+    }
     
     // MARK: - Subviews
-    let table = UITableView()
+    private let searchBar = UISearchBar()
     
     // MARK: - Stored Constraints
     // (Store any constraints that might need to be changed or animated later)
     
     
     // MARK: - Initialization
-    
-    convenience init() {
-        self.init(frame: .zero)
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
         configureSubviews()
         configureTesting()
         configureLayout()
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     /// Set view/subviews appearances
     fileprivate func configureSubviews() {
-        backgroundColor = .clear
         
-        table.register(SearchBarTableViewHeader.self, forHeaderFooterViewReuseIdentifier: "searchHeader")
-        table.register(RepositoryListTableViewCell.self, forCellReuseIdentifier: "repoCell")
     }
     
     /// Set AccessibilityIdentifiers for view/subviews
@@ -41,8 +48,8 @@ class RepositoryListView: UIView {
     
     /// Add subviews, set layoutMargins, initialize stored constraints, set layout priorities, activate constraints
     fileprivate func configureLayout() {
-        addAutoLayoutSubview(table)
-        table.fillSuperview()
+        addAutoLayoutSubview(searchBar)
+        searchBar.fillSuperview()
     }
 }
 

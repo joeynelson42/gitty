@@ -13,6 +13,12 @@ class RepositoryListViewController: UIViewController {
     // MARK: - Properties
     private var repositories: [GithubRepository] = [] {
         didSet {
+            filtered = self.repositories
+        }
+    }
+    
+    private var filtered: [GithubRepository] = [] {
+        didSet {
             baseView.table.reloadData()
         }
     }
@@ -41,18 +47,28 @@ class RepositoryListViewController: UIViewController {
 
 extension RepositoryListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+        filtered = repositories.filter { $0.name.contains(searchText) }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if let text = searchBar.text, text == "" {
+            filtered = repositories
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
     }
 }
 
 // UIScrollViewDelegate
 extension RepositoryListViewController {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-//        baseView.searchBar.resignFirstResponder()
+        baseView.endEditing(true)
     }
 }
 
@@ -72,15 +88,21 @@ extension RepositoryListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repositories.count
+        return filtered.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "repoCell", for: indexPath) as! RepositoryListTableViewCell
-        let repo = repositories[indexPath.row]
+        let repo = filtered[indexPath.row]
         cell.nameLabel.text = repo.name
         cell.starCountLabel.text = "🌟: \(repo.stargazersCount)"
         cell.forkCountLabel.text = "🍴: \(repo.forksCount)"
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "searchHeader") as! SearchBarTableViewHeader
+        header.delegate = self
+        return header
     }
 }
