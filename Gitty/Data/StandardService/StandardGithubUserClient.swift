@@ -9,7 +9,7 @@
 import Foundation
 
 final class StandardGithubUserClient: GithubUserClient {
-    
+
     var baseURLComponents: URLComponents
     
     private let defaultSession = URLSession(configuration: .default)
@@ -38,7 +38,7 @@ final class StandardGithubUserClient: GithubUserClient {
             return
         }
         
-        performGET(url: url) { [weak self] (result: GithubUserSearchResult?, error) in
+        executeGet(session: defaultSession, url: url) { [weak self] (result: GithubUserSearchResult?, error) in
             if let result = result {
                 self?.searchCache.cache(value: result, for: searchTerms)
             }
@@ -53,7 +53,7 @@ final class StandardGithubUserClient: GithubUserClient {
             return
         }
         
-        performGET(url: url, completion: completion)
+        executeGet(session: defaultSession, url: url, completion: completion)
     }
     
     func getRepos(forUser user: GithubUser, completion: @escaping NetworkCompletionHandler<[GithubRepository]>) {
@@ -62,26 +62,6 @@ final class StandardGithubUserClient: GithubUserClient {
             return
         }
         
-        performGET(url: url, completion: completion)
-    }
-    
-    private func performGET<T: Decodable>(url: URL, completion: @escaping NetworkCompletionHandler<T>) {
-        
-        let dataTask = defaultSession.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(nil, error)
-            } else if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
-                let decoder = JSONDecoder()
-                do {
-                    let result = try decoder.decode(T.self, from: data)
-                    completion(result, nil)
-                } catch {
-                    print(error)
-                    completion(nil, error)
-                }
-            }
-        }
-        
-        dataTask.resume()
+        executeGet(session: defaultSession, url: url, completion: completion)
     }
 }

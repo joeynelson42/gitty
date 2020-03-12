@@ -13,12 +13,7 @@ class RepositoryListView: UIView {
     // MARK: - Subviews
     let table = UITableView()
     
-    // MARK: - Stored Constraints
-    // (Store any constraints that might need to be changed or animated later)
-    
-    
     // MARK: - Initialization
-    
     convenience init() {
         self.init(frame: .zero)
         configureSubviews()

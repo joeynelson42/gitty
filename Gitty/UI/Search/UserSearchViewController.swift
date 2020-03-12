@@ -116,9 +116,11 @@ extension UserSearchViewController: UITableViewDataSource {
         if let repos = user.repos {
             cell.repoLabel.text = "Repos: \(repos.count)"
         } else if indexPath.row == 0 { // limit so I don't blow through the GitHub API rate limit
+            cell.startLoadingAnimation()
             userDataProvider.getUserProfile(forUser: user) { (profile, _) in
                 let count = profile != nil ? profile!.repoCount : 0
                 cell.repoLabel.text = "Repos: \(count)"
+                cell.endLoadingAnimation()
             }
         }
         

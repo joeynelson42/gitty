@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ImageClient {
+protocol ImageClient: NetworkClient {
     
     func downloadImage(from url: URL, completion: @escaping NetworkCompletionHandler<Data>)
     

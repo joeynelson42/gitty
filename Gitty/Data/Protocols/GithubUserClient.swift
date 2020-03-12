@@ -9,7 +9,7 @@
 import Foundation
 
 /// The Client which handles the network calls related to GithubUser resources.
-protocol GithubUserClient {
+protocol GithubUserClient: NetworkClient {
     
     var baseURLComponents: URLComponents { get }
     
@@ -18,4 +18,5 @@ protocol GithubUserClient {
     func getUserProfileDetails(forUser user: GithubUser, completion: @escaping NetworkCompletionHandler<GithubUserProfileDetails>)
     
     func getRepos(forUser user: GithubUser, completion: @escaping NetworkCompletionHandler<[GithubRepository]>)
+    
 }

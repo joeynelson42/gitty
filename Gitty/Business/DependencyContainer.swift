@@ -15,6 +15,9 @@ final class DependencyContainer {
     var networkService: NetworkService
     var store: Store
     
+    lazy var userDataProvider: GithubUserDataProvider = buildGithubUserDataProvider()
+    lazy var imageDataProvider: ImageDataProvider = buildImageDataProvider()
+    
     init(networkService: NetworkService, store: Store) {
         self.networkService = networkService
         self.store = store
@@ -33,11 +36,11 @@ extension DependencyContainer: DataProviderFactory {
 
 extension DependencyContainer: ViewControllerFactory {
     func buildUserSearchViewController() -> UserSearchViewController {
-        return UserSearchViewController(userDataProvider: buildGithubUserDataProvider(), imageDataProvider: buildImageDataProvider(), controllerFactory: self)
+        return UserSearchViewController(userDataProvider: userDataProvider, imageDataProvider: imageDataProvider, controllerFactory: self)
     }
     
     func buildUserProfileViewController(user: GithubUser) -> UserProfileViewController {
-        return UserProfileViewController(user: user, dataProvider: buildGithubUserDataProvider(), imageDataProvider: buildImageDataProvider(), controllerFactory: self)
+        return UserProfileViewController(user: user, dataProvider: userDataProvider, imageDataProvider: imageDataProvider, controllerFactory: self)
     }
     
     func buildRepositoryDetailViewController(repository: GithubRepository) -> UIViewController {

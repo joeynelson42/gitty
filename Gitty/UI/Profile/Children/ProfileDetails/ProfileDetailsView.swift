@@ -10,8 +10,6 @@ import UIKit
 
 class ProfileDetailsView: UIView {
     
-    // MARK: - Properties
-    
     // MARK: - Subviews
     let avatarImageView = UIImageView()
     let bioLabel = UILabel()
@@ -24,12 +22,7 @@ class ProfileDetailsView: UIView {
     let followersLabel = UILabel()
     let followingLabel = UILabel()
     
-    // MARK: - Stored Constraints
-    // (Store any constraints that might need to be changed or animated later)
-    
-    
     // MARK: - Initialization
-    
     convenience init() {
         self.init(frame: .zero)
         configureSubviews()

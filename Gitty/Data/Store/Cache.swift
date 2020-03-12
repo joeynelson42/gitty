@@ -10,6 +10,9 @@ import UIKit
 
 final class Cache<Key: Hashable, Value> {
     
+    private var cache = [Key : Value]()
+    private let queue = DispatchQueue(label: "com.nelsonje.gitty.cacheQueue")
+    
     func cache(value: Value, for key: Key) {
         queue.async {
             self.cache[key] = value
@@ -25,7 +28,4 @@ final class Cache<Key: Hashable, Value> {
             self.cache.removeAll()
         }
     }
-    
-    private var cache = [Key : Value]()
-    private let queue = DispatchQueue(label: "com.nelsonje.gitty.cacheQueue")
 }

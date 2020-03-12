@@ -19,11 +19,7 @@ class SearchBarTableViewHeader: UITableViewHeaderFooterView {
     
     // MARK: - Subviews
     private let searchBar = UISearchBar()
-    
-    // MARK: - Stored Constraints
-    // (Store any constraints that might need to be changed or animated later)
-    
-    
+
     // MARK: - Initialization
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)

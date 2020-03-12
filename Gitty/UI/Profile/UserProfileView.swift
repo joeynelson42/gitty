@@ -10,18 +10,11 @@ import UIKit
 
 class UserProfileView: UIView {
     
-    // MARK: - Properties
-    
     // MARK: - Subviews
     let profileDetailsContainer = UIView()
     let repositoryListContainer = UIView()
     
-    // MARK: - Stored Constraints
-    // (Store any constraints that might need to be changed or animated later)
-    
-    
     // MARK: - Initialization
-    
     convenience init() {
         self.init(frame: .zero)
         configureSubviews()

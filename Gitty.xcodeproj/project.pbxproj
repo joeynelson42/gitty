@@ -11,6 +11,7 @@
 		F111B2652419C24C0091C277 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F111B2642419C24C0091C277 /* MockNetworkService.swift */; };
 		F111B2672419C2680091C277 /* MockGithubUserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F111B2662419C2680091C277 /* MockGithubUserClient.swift */; };
 		F111B2692419C2960091C277 /* MockImageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F111B2682419C2960091C277 /* MockImageClient.swift */; };
+		F111B26B2419C60A0091C277 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F111B26A2419C60A0091C277 /* NetworkClient.swift */; };
 		F1502E9724196E4000291B5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502E9624196E4000291B5D /* AppDelegate.swift */; };
 		F1502E9924196E4000291B5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502E9824196E4000291B5D /* SceneDelegate.swift */; };
 		F1502EA024196E4300291B5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1502E9F24196E4300291B5D /* Assets.xcassets */; };
@@ -18,7 +19,6 @@
 		F1502EAE24196E4300291B5D /* GittyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EAD24196E4300291B5D /* GittyTests.swift */; };
 		F1502EB924196E4300291B5D /* GittyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EB824196E4300291B5D /* GittyUITests.swift */; };
 		F1502EC724196F6900291B5D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EC624196F6900291B5D /* RootViewController.swift */; };
-		F1502EC924196F7200291B5D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502EC824196F7200291B5D /* RootView.swift */; };
 		F1502ED22419709D00291B5D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502ED12419709D00291B5D /* NetworkService.swift */; };
 		F1502ED4241970D900291B5D /* GithubUserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502ED3241970D900291B5D /* GithubUserClient.swift */; };
 		F1502ED6241970F700291B5D /* GithubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502ED5241970F700291B5D /* GithubUser.swift */; };
@@ -73,6 +73,7 @@
 		F111B2642419C24C0091C277 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
 		F111B2662419C2680091C277 /* MockGithubUserClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGithubUserClient.swift; sourceTree = "<group>"; };
 		F111B2682419C2960091C277 /* MockImageClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageClient.swift; sourceTree = "<group>"; };
+		F111B26A2419C60A0091C277 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		F1502E9324196E4000291B5D /* Gitty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gitty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1502E9624196E4000291B5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1502E9824196E4000291B5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,7 +87,6 @@
 		F1502EB824196E4300291B5D /* GittyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GittyUITests.swift; sourceTree = "<group>"; };
 		F1502EBA24196E4300291B5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1502EC624196F6900291B5D /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		F1502EC824196F7200291B5D /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		F1502ED12419709D00291B5D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		F1502ED3241970D900291B5D /* GithubUserClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserClient.swift; sourceTree = "<group>"; };
 		F1502ED5241970F700291B5D /* GithubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUser.swift; sourceTree = "<group>"; };
@@ -227,11 +227,11 @@
 		F1502ECC2419702600291B5D /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				F111B2632419C23B0091C277 /* MockService */,
 				F1502ED02419708D00291B5D /* Protocols */,
-				F1502EFD24198CFD00291B5D /* Store */,
-				F1502ED82419722E00291B5D /* StandardService */,
 				F1502ED7241970FC00291B5D /* Model */,
+				F1502EFD24198CFD00291B5D /* Store */,
+				F111B2632419C23B0091C277 /* MockService */,
+				F1502ED82419722E00291B5D /* StandardService */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -261,7 +261,6 @@
 			isa = PBXGroup;
 			children = (
 				F1502EC624196F6900291B5D /* RootViewController.swift */,
-				F1502EC824196F7200291B5D /* RootView.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -270,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				F1502ED12419709D00291B5D /* NetworkService.swift */,
+				F111B26A2419C60A0091C277 /* NetworkClient.swift */,
 				F1502ED3241970D900291B5D /* GithubUserClient.swift */,
 				F1502F0224198D5800291B5D /* ImageClient.swift */,
 			);
@@ -555,8 +555,8 @@
 				F1502E9924196E4000291B5D /* SceneDelegate.swift in Sources */,
 				F1502F0B2419997C00291B5D /* Store.swift in Sources */,
 				F1502EF824197E1F00291B5D /* UIView+Anchors.swift in Sources */,
-				F1502EC924196F7200291B5D /* RootView.swift in Sources */,
 				F1502EDF2419735A00291B5D /* UserSearchViewController.swift in Sources */,
+				F111B26B2419C60A0091C277 /* NetworkClient.swift in Sources */,
 				F1502F0724198DCD00291B5D /* ImageDataProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

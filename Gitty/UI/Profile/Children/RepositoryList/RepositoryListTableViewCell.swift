@@ -15,12 +15,7 @@ class RepositoryListTableViewCell: UITableViewCell {
     let starCountLabel = UILabel()
     let forkCountLabel = UILabel()
     
-    // MARK: - Stored Constraints
-    // (Store any constraints that might need to be changed or animated later)
-    
-    
     // MARK: - Initialization
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureSubviews()

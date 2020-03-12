@@ -15,4 +15,5 @@ protocol ViewControllerFactory {
     func buildUserProfileViewController(user: GithubUser) -> UserProfileViewController
     
     func buildRepositoryDetailViewController(repository: GithubRepository) -> UIViewController
+    
 }

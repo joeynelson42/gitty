@@ -16,12 +16,7 @@ class UserSearchTableViewCell: UITableViewCell {
     let repoLabel = UILabel()
     let loadingSpinner = UIActivityIndicatorView()
     
-    // MARK: - Stored Constraints
-    // (Store any constraints that might need to be changed or animated later)
-    
-    
     // MARK: - Initialization
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureSubviews()
@@ -87,6 +82,24 @@ class UserSearchTableViewCell: UITableViewCell {
             loadingSpinner.centerYAnchor.constraint(equalTo: centerYAnchor),
             loadingSpinner.rightAnchor.constraint(equalTo: rightAnchor, constant: -12),
             ])
+    }
+    
+    func startLoadingAnimation() {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.repoLabel.alpha = 0
+            self.loadingSpinner.alpha = 1
+        }) { (_) in
+            self.loadingSpinner.startAnimating()
+        }
+    }
+    
+    func endLoadingAnimation() {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.repoLabel.alpha = 1
+            self.loadingSpinner.alpha = 0
+        }) { (_) in
+            self.loadingSpinner.stopAnimating()
+        }
     }
 }
 

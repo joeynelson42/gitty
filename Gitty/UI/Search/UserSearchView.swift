@@ -10,15 +10,9 @@ import UIKit
 
 class UserSearchView: UIView {
     
-    // MARK: - Properties
-    
     // MARK: - Subviews
     let searchBar = UISearchBar()
     let table = UITableView()
-    
-    // MARK: - Stored Constraints
-    // (Store any constraints that might need to be changed or animated later)
-    
     
     // MARK: - Initialization
     convenience init() {
