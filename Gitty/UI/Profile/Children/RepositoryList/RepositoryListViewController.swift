@@ -34,10 +34,6 @@ class RepositoryListViewController: UIViewController {
         baseView.table.dataSource = self
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     public func set(repositories: [GithubRepository]) {
         self.repositories = repositories
     }

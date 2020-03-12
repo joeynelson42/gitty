@@ -28,7 +28,7 @@ class RepositoryListView: UIView {
     
     /// Set view/subviews appearances
     fileprivate func configureSubviews() {
-        backgroundColor = .white
+        backgroundColor = .clear
         
         table.register(RepositoryListTableViewCell.self, forCellReuseIdentifier: "repoCell")
     }

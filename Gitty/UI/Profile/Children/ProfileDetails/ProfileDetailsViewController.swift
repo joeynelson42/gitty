@@ -11,14 +11,20 @@ import UIKit
 class ProfileDetailsViewController: UIViewController {
     
     // MARK: - Properties
-    private let dataProvider: GithubUserDataProvider
+    private var imageDataProvider: ImageDataProvider
+    
+    private var profileDetails: GithubUserProfileDetails? {
+        didSet {
+            bindDetailsToView()
+        }
+    }
     
     // MARK: - View
     let baseView = ProfileDetailsView()
     
     // MARK: - Life Cycle
-    init(dataProvider: GithubUserDataProvider) {
-        self.dataProvider = dataProvider
+    init(imageDataProvider: ImageDataProvider) {
+        self.imageDataProvider = imageDataProvider
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -28,19 +34,32 @@ class ProfileDetailsViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        
         view = baseView
-        setupViewOnLoad()
     }
     
-    /// Setup View upon loading ViewController (e.g. add targets to buttons, update labels with data, etc.)
-    func setupViewOnLoad() {
-        
+    func set(profileDetails: GithubUserProfileDetails) {
+        self.profileDetails = profileDetails
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private func bindDetailsToView() {
+        guard let profile = profileDetails else { return }
+        if let urlStr = profile.avatarURL, let url = URL(string: urlStr) {
+            imageDataProvider.getImage(for: url) { [weak self] (image, _) in
+                self?.baseView.avatarImageView.image = image
+            }
+        }
         
+        baseView.nameLabel.text = profile.name ?? "No name!"
+        baseView.bioLabel.text = profile.bio ?? "No bio"
+        baseView.emailLabel.text = profile.email ?? "No email"
+        baseView.locationLabel.text = profile.location ?? "No location"
+        baseView.followingLabel.text = "Following: \(profile.following)"
+        baseView.followersLabel.text = "Followers: \(profile.followers)"
         
+        if let joined = profile.joinDate {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .short
+            baseView.joinedLabel.text = "Joined on \(dateFormatter.string(from: joined))"
+        }
     }
 }

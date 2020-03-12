@@ -45,14 +45,16 @@ class UserProfileView: UIView {
         addAutoLayoutSubview(profileDetailsContainer)
         addAutoLayoutSubview(repositoryListContainer)
         
-        repositoryListContainer.fillSuperview()
-        
         // Activate NSLayoutAnchors within this closure
         NSLayoutConstraint.activate([
             profileDetailsContainer.topAnchor.constraint(equalTo: topAnchor),
             profileDetailsContainer.leftAnchor.constraint(equalTo: leftAnchor),
             profileDetailsContainer.rightAnchor.constraint(equalTo: rightAnchor),
-            profileDetailsContainer.heightAnchor.constraint(greaterThanOrEqualToConstant: 200),
+            
+            repositoryListContainer.topAnchor.constraint(equalTo: profileDetailsContainer.bottomAnchor),
+            repositoryListContainer.leftAnchor.constraint(equalTo: leftAnchor),
+            repositoryListContainer.bottomAnchor.constraint(equalTo: bottomAnchor),
+            repositoryListContainer.rightAnchor.constraint(equalTo: rightAnchor),
             ])
     }
 }

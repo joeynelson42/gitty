@@ -10,6 +10,7 @@ import Foundation
  
 struct GithubUserProfileDetails: Codable {
     var name: String?
+    var avatarURL: String?
     var location: String?
     var bio: String?
     var email: String?
@@ -19,18 +20,19 @@ struct GithubUserProfileDetails: Codable {
     var joinDate: Date?
     
     enum CodingKeys: String, CodingKey {
-      case name, location, bio, email, public_repos, followers, following, created_at
+      case name, avatar_url, location, bio, email, public_repos, followers, following, created_at
     }
     
     private var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         return formatter
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = try container.decode(String?.self, forKey: .name)
+        avatarURL = try container.decode(String?.self, forKey: .avatar_url)
         location = try container.decode(String?.self, forKey: .location)
         bio = try container.decode(String?.self, forKey: .bio)
         email = try container.decode(String?.self, forKey: .email)
@@ -39,7 +41,7 @@ struct GithubUserProfileDetails: Codable {
         following = try container.decode(Int.self, forKey: .following)
         
         let dateStr = try container.decode(String.self, forKey: .created_at)
-        joinDate = dateFormatter.date(from: dateStr)
+        joinDate = self.dateFormatter.date(from: dateStr)
     }
     
     func encode(to encoder: Encoder) throws {

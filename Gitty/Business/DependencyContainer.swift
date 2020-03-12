@@ -36,6 +36,6 @@ extension DependencyContainer: ViewControllerFactory {
     }
     
     func buildUserProfileViewController(user: GithubUser) -> UserProfileViewController {
-        return UserProfileViewController(user: user, dataProvider: buildGithubUserDataProvider(), controllerFactory: self)
+        return UserProfileViewController(user: user, dataProvider: buildGithubUserDataProvider(), imageDataProvider: buildImageDataProvider(), controllerFactory: self)
     }
 }
