@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F111B2622419BD4D0091C277 /* SearchBarTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F111B2612419BD4D0091C277 /* SearchBarTableViewHeader.swift */; };
+		F111B2652419C24C0091C277 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F111B2642419C24C0091C277 /* MockNetworkService.swift */; };
+		F111B2672419C2680091C277 /* MockGithubUserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F111B2662419C2680091C277 /* MockGithubUserClient.swift */; };
+		F111B2692419C2960091C277 /* MockImageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F111B2682419C2960091C277 /* MockImageClient.swift */; };
 		F1502E9724196E4000291B5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502E9624196E4000291B5D /* AppDelegate.swift */; };
 		F1502E9924196E4000291B5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502E9824196E4000291B5D /* SceneDelegate.swift */; };
 		F1502EA024196E4300291B5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1502E9F24196E4300291B5D /* Assets.xcassets */; };
@@ -67,6 +70,9 @@
 
 /* Begin PBXFileReference section */
 		F111B2612419BD4D0091C277 /* SearchBarTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarTableViewHeader.swift; sourceTree = "<group>"; };
+		F111B2642419C24C0091C277 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
+		F111B2662419C2680091C277 /* MockGithubUserClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGithubUserClient.swift; sourceTree = "<group>"; };
+		F111B2682419C2960091C277 /* MockImageClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageClient.swift; sourceTree = "<group>"; };
 		F1502E9324196E4000291B5D /* Gitty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gitty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1502E9624196E4000291B5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1502E9824196E4000291B5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +144,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F111B2632419C23B0091C277 /* MockService */ = {
+			isa = PBXGroup;
+			children = (
+				F111B2642419C24C0091C277 /* MockNetworkService.swift */,
+				F111B2662419C2680091C277 /* MockGithubUserClient.swift */,
+				F111B2682419C2960091C277 /* MockImageClient.swift */,
+			);
+			path = MockService;
+			sourceTree = "<group>";
+		};
 		F1502E8A24196E4000291B5D = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +227,7 @@
 		F1502ECC2419702600291B5D /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				F111B2632419C23B0091C277 /* MockService */,
 				F1502ED02419708D00291B5D /* Protocols */,
 				F1502EFD24198CFD00291B5D /* Store */,
 				F1502ED82419722E00291B5D /* StandardService */,
@@ -525,8 +542,11 @@
 				F1502EEC2419741B00291B5D /* DependencyContainer.swift in Sources */,
 				F1502ED4241970D900291B5D /* GithubUserClient.swift in Sources */,
 				F1502EDC2419727200291B5D /* StandardGithubUserClient.swift in Sources */,
+				F111B2692419C2960091C277 /* MockImageClient.swift in Sources */,
 				F1502EC724196F6900291B5D /* RootViewController.swift in Sources */,
+				F111B2652419C24C0091C277 /* MockNetworkService.swift in Sources */,
 				F1502EE4241973A800291B5D /* UserProfileView.swift in Sources */,
+				F111B2672419C2680091C277 /* MockGithubUserClient.swift in Sources */,
 				F1502EE6241973B100291B5D /* UserProfileViewController.swift in Sources */,
 				F1502F132419AD6800291B5D /* ProfileDetailsView.swift in Sources */,
 				F1502ED6241970F700291B5D /* GithubUser.swift in Sources */,
