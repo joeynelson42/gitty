@@ -40,6 +40,11 @@
 		F1502F092419915300291B5D /* GithubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502F082419915300291B5D /* GithubRepository.swift */; };
 		F1502F0B2419997C00291B5D /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502F0A2419997C00291B5D /* Store.swift */; };
 		F1502F0D2419A5B400291B5D /* GithubUserProfileDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502F0C2419A5B400291B5D /* GithubUserProfileDetails.swift */; };
+		F1502F112419AD5F00291B5D /* ProfileDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502F102419AD5F00291B5D /* ProfileDetailsViewController.swift */; };
+		F1502F132419AD6800291B5D /* ProfileDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502F122419AD6800291B5D /* ProfileDetailsView.swift */; };
+		F1502F172419AF3B00291B5D /* RepositoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502F162419AF3B00291B5D /* RepositoryListView.swift */; };
+		F1502F192419AF4400291B5D /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502F182419AF4400291B5D /* RepositoryListViewController.swift */; };
+		F1502F1B2419AF7800291B5D /* RepositoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1502F1A2419AF7800291B5D /* RepositoryListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +104,11 @@
 		F1502F082419915300291B5D /* GithubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepository.swift; sourceTree = "<group>"; };
 		F1502F0A2419997C00291B5D /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		F1502F0C2419A5B400291B5D /* GithubUserProfileDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserProfileDetails.swift; sourceTree = "<group>"; };
+		F1502F102419AD5F00291B5D /* ProfileDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailsViewController.swift; sourceTree = "<group>"; };
+		F1502F122419AD6800291B5D /* ProfileDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailsView.swift; sourceTree = "<group>"; };
+		F1502F162419AF3B00291B5D /* RepositoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListView.swift; sourceTree = "<group>"; };
+		F1502F182419AF4400291B5D /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
+		F1502F1A2419AF7800291B5D /* RepositoryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +293,7 @@
 			children = (
 				F1502EE5241973B100291B5D /* UserProfileViewController.swift */,
 				F1502EE3241973A800291B5D /* UserProfileView.swift */,
+				F1502F0F2419AD0400291B5D /* Children */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -329,6 +340,34 @@
 				F1502F0A2419997C00291B5D /* Store.swift */,
 			);
 			path = Store;
+			sourceTree = "<group>";
+		};
+		F1502F0F2419AD0400291B5D /* Children */ = {
+			isa = PBXGroup;
+			children = (
+				F1502F152419AF1900291B5D /* RepositoryList */,
+				F1502F142419AF1200291B5D /* ProfileDetails */,
+			);
+			path = Children;
+			sourceTree = "<group>";
+		};
+		F1502F142419AF1200291B5D /* ProfileDetails */ = {
+			isa = PBXGroup;
+			children = (
+				F1502F102419AD5F00291B5D /* ProfileDetailsViewController.swift */,
+				F1502F122419AD6800291B5D /* ProfileDetailsView.swift */,
+			);
+			path = ProfileDetails;
+			sourceTree = "<group>";
+		};
+		F1502F152419AF1900291B5D /* RepositoryList */ = {
+			isa = PBXGroup;
+			children = (
+				F1502F182419AF4400291B5D /* RepositoryListViewController.swift */,
+				F1502F162419AF3B00291B5D /* RepositoryListView.swift */,
+				F1502F1A2419AF7800291B5D /* RepositoryListTableViewCell.swift */,
+			);
+			path = RepositoryList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -463,15 +502,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1502EFC24198A0900291B5D /* UserSearchTableViewCell.swift in Sources */,
+				F1502F172419AF3B00291B5D /* RepositoryListView.swift in Sources */,
 				F1502F0524198D7300291B5D /* StandardImageClient.swift in Sources */,
 				F1502EF624197E1600291B5D /* UIViewController+Children.swift in Sources */,
 				F1502EF0241974EC00291B5D /* GithubUserDataProvider.swift in Sources */,
 				F1502EDA2419724100291B5D /* StandardNetworkService.swift in Sources */,
 				F1502EFF24198D1000291B5D /* Cache.swift in Sources */,
 				F1502F0D2419A5B400291B5D /* GithubUserProfileDetails.swift in Sources */,
+				F1502F112419AD5F00291B5D /* ProfileDetailsViewController.swift in Sources */,
 				F1502EE8241973E900291B5D /* ViewControllerFactory.swift in Sources */,
 				F1502F0324198D5800291B5D /* ImageClient.swift in Sources */,
 				F1502ED22419709D00291B5D /* NetworkService.swift in Sources */,
+				F1502F1B2419AF7800291B5D /* RepositoryListTableViewCell.swift in Sources */,
 				F1502F092419915300291B5D /* GithubRepository.swift in Sources */,
 				F1502EE12419736300291B5D /* UserSearchView.swift in Sources */,
 				F1502E9724196E4000291B5D /* AppDelegate.swift in Sources */,
@@ -482,7 +524,9 @@
 				F1502EC724196F6900291B5D /* RootViewController.swift in Sources */,
 				F1502EE4241973A800291B5D /* UserProfileView.swift in Sources */,
 				F1502EE6241973B100291B5D /* UserProfileViewController.swift in Sources */,
+				F1502F132419AD6800291B5D /* ProfileDetailsView.swift in Sources */,
 				F1502ED6241970F700291B5D /* GithubUser.swift in Sources */,
+				F1502F192419AF4400291B5D /* RepositoryListViewController.swift in Sources */,
 				F1502EF324197C6800291B5D /* GithubUserSearchResult.swift in Sources */,
 				F1502E9924196E4000291B5D /* SceneDelegate.swift in Sources */,
 				F1502F0B2419997C00291B5D /* Store.swift in Sources */,

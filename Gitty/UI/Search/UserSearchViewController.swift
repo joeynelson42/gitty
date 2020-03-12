@@ -45,6 +45,8 @@ class UserSearchViewController: UIViewController {
     
     /// Setup View upon loading ViewController (e.g. add targets to buttons, update labels with data, etc.)
     func setupViewOnLoad() {
+        title = "Search"
+        
         baseView.searchBar.delegate = self
         
         baseView.table.dataSource = self

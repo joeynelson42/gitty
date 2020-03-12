@@ -30,8 +30,7 @@ final class StandardGithubUserClient: GithubUserClient {
         components.path = "/search/users"
         components.queryItems = [
             URLQueryItem(name: "q", value: searchTerms),
-            URLQueryItem(name: "page", value: "\(page)"),
-            URLQueryItem(name: "Authentication", value: "eec8134b5ee5e07249271595f73c4d3b01e5549e")
+            URLQueryItem(name: "page", value: "\(page)")
         ]
         
         guard let url = components.url else {
@@ -74,8 +73,6 @@ final class StandardGithubUserClient: GithubUserClient {
             } else if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
                 let decoder = JSONDecoder()
                 do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
                     let result = try decoder.decode(T.self, from: data)
                     completion(result, nil)
                 } catch {

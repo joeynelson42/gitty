@@ -11,14 +11,22 @@ import UIKit
 class UserProfileViewController: UIViewController {
     
     // MARK: - Properties
-    private var user: GithubUser
+    private let user: GithubUser
+    private let dataProvider: GithubUserDataProvider
+    private let controllerFactory: ViewControllerFactory
+    
+    // Children
+    private var detailsController: ProfileDetailsViewController!
+    private var listController: RepositoryListViewController!
     
     // MARK: - View
     let baseView = UserProfileView()
     
     // MARK: - Life Cycle
-    init(user: GithubUser) {
+    init(user: GithubUser, dataProvider: GithubUserDataProvider, controllerFactory: ViewControllerFactory) {
         self.user = user
+        self.dataProvider = dataProvider
+        self.controllerFactory = controllerFactory
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -35,7 +43,11 @@ class UserProfileViewController: UIViewController {
     
     /// Setup View upon loading ViewController (e.g. add targets to buttons, update labels with data, etc.)
     func setupViewOnLoad() {
-        self.title = user.username
+        detailsController = ProfileDetailsViewController.init(dataProvider: dataProvider)
+        listController = RepositoryListViewController()
+        
+        add(childController: detailsController, toView: baseView.profileDetailsContainer)
+        add(childController: listController, toView: baseView.repositoryListContainer)
     }
     
     override func viewDidLoad() {
